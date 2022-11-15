@@ -6,13 +6,12 @@
 
             </div>
             <div class="card-body">
-                <form>
+                <form (ngSubmit)="apply()">
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" class="form-control" formControlName="firstname" name="firstname" placeholder="First name"
-                            id="reg_name" required>
+                        <input type="text" class="form-control" [(ngModel)]="firstname" name="firstname" placeholder="First name" required>
 
                     </div>
 
@@ -20,44 +19,44 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" class="form-control" formControlName="lastname" name="lastname"
-                            placeholder="Second name" id="reg_accnum" required>
+                        <input type="text" class="form-control" [(ngModel)]="lastname" name="lastname"
+                            placeholder="Second name" required>
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="bi bi-1-circle"></i></span>
+                            <span class="input-group-text"><i class="fas fa-caret-right"></i></span>
                         </div>
-                        <input type="number" class="form-control" formControlName="age" name="age"
-                            placeholder="Age" id="reg_password" required>
+                        <input type="number" class="form-control" [(ngModel)]="age" name="age"
+                            placeholder="Age" required>
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"></span>
+                            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                         </div>
-                        <input type="text" class="form-control" formControlName="pancard" name="pancard"
-                            placeholder="PANcard" id="reg_password" required>
+                        <input type="text" class="form-control" [(ngModel)]="pancard" name="pancard"
+                            placeholder="PANcard" required>
                     </div>
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-caret-right"></i></span>
+                        </div>
+                        <input type="text" class="form-control"[(ngModel)]="accountnumber" name="accountnumber"
+                            placeholder="Accountnumber" required>
+                    </div>
+
 
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"></span>
+                            <span class="input-group-text"><i class="far fa-id-card"></i></span>
                         </div>
-                        <input type="text" class="form-control" formControlName="accountnumber" name="accountnumber"
-                            placeholder="Accountnumber" id="reg_password" required>
-                    </div>
-
-
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"></span>
-                        </div>
-                        <input type="text" class="form-control" formControlName="aadhar" name="aadhar"
+                        <input type="text" class="form-control" [(ngModel)]="aadhar" name="aadhar"
                             placeholder="AAdhar" id="reg_password" required>
                     </div>
 
 
                     <div>
-                        <input type="submit" (click)="apply()" value="Apply" class="btn float-right login_btn " style="width:50%">
+                        <input type="submit" value="Apply" class="btn float-right login_btn " style="width:50%">
                     </div>
                 </form>
             </div>
@@ -77,9 +76,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let data of dummyarray">
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>{{data.firstname}}</td>
+        <td>{{data.lastname}}</td>
+        <td>{{data.age}}</td>
+        <td>{{data.pancard}}</td>
+        <td>{{data.aadhar}}</td>
       </tr>
     </tbody>
   </table>

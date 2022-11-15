@@ -10,14 +10,14 @@ import { AuthserviceService } from '../services/authservice.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-// accno:any
-// name:any
-// pswd:any
+accno:any
+name:any
+pswd:any
 
 registerForm = this.fb.group({
-  accno:['',[Validators.required,Validators.pattern('[0-9]*')]],
-  name:['',[Validators.required,Validators.pattern('[A-Za-z]')]],
-  pswd:['',[Validators.required,Validators.pattern('[0-9]')]]
+  accno:['',[Validators.required,Validators.pattern("[0-9]*")]],
+  uname:['',[Validators.required,Validators.pattern("[A-Za-z]*")]],
+  pswd:['',[Validators.required,Validators.pattern("[0-9]*")]]
 })
   constructor(private ds:AuthserviceService,private router:Router,private fb:FormBuilder) { }
 
@@ -26,12 +26,12 @@ registerForm = this.fb.group({
 
   registerfun(){
     var acno = this.registerForm.value.accno
-    var uname = this.registerForm.value.name
+    var username = this.registerForm.value.uname
     var password = this.registerForm.value.pswd
 
     if(this.registerForm.valid){
 
-    const result = this.ds.register(acno,password,uname)
+    const result = this.ds.register(acno,password,username)
 
     if(result){
       alert("Register successfull")

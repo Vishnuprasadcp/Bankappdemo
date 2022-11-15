@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-creditcard',
@@ -32,8 +31,8 @@ export class CreditcardComponent implements OnInit {
     "acno":this.accountnumber,
     "adh":this.aadhar
     }
-
     alert("Applied Successfully")
+
     this.dummyarray.push({
       "fname":this.firstname,
       "lname":this.lastname,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthserviceService } from '../services/authservice.service';
 
 @Component({
@@ -14,7 +15,7 @@ amountD:any
 accnow:any
 pswdw:any
 amountw:any
-  constructor(private ds:AuthserviceService) { }
+  constructor(private ds:AuthserviceService, private root:Router) { }
 
   ngOnInit(): void {
     // document.body.className = "dashboard"
@@ -34,8 +35,11 @@ amountw:any
           "Type":"Deposit",
           "Amount":amt
         }
+       
         console.log("DATABASE:",db)
+        
         alert(`Amount ${amt} added successfully,Current account balance is ${db[acc]["Balance"]}`)
+        
       }else{
         alert("check password")
       }
@@ -61,6 +65,7 @@ amountw:any
           }
           console.log("DATABASE:",db)
           alert(`Amount ${amt} withdrawed successfully,Current account balance is ${db[acc]["Balance"]}`)
+          
         }else{
           alert("Insufficient balance")
         }

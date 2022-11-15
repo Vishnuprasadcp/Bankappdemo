@@ -7,12 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private root:Router) { }
+  name: any
+  constructor(private root: Router) {
+    this.name = JSON.parse(localStorage.getItem('usname') || '')
+  }
 
   ngOnInit(): void {
   }
-  logout(){
+  logout() {
     this.root.navigateByUrl("")
   }
 

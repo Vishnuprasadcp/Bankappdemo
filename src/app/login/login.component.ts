@@ -27,7 +27,7 @@ login(){
  var acno:any = this.accountnumber
  var pswd:any = this.pswd1
 
- var result:any = this.ds.login(acno,pswd)
+ var result:any = this.ds.servicelogin(acno,pswd)
  
  if(result){
   alert("login Successfull")
